@@ -611,6 +611,9 @@ plotkdde.3d <- function(fhat, which.deriv.ind=1, cont=c(25,50,75), abs.cont, col
 
 plotquiver <- function(fhat, thin=5, transf=1/4, neg.grad=FALSE, xlab, ylab, ...)
 {
+    if (!requireNamespace("OceanView", quietly = TRUE))
+        stop("Package \"OceanView\" needed for this function to work. Please install it.", call. = FALSE)
+
     ev <- fhat$eval.points
     est <- fhat$estimate
 
