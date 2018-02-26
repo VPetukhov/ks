@@ -274,6 +274,9 @@ plotkcde.2d <- function(Fhat, display="persp", cont=seq(10,90, by=10), abs.cont,
 plotkcde.3d <- function(Fhat, cont=c(25,50,75), colors, alphavec, size=3, col.pt="blue", add=FALSE, xlab, ylab, zlab, drawpoints=FALSE, alpha=1, box=TRUE, axes=TRUE, ...)
 
 {
+  if (!requireNamespace("rgl", quietly = TRUE))
+    stop("Package \"rgl\" needed for this function to work. Please install it.", call. = FALSE)
+
   hts <- sort(cont/100)
   nc <- length(hts)
   

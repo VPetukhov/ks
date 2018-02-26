@@ -773,6 +773,9 @@ plotkda.2d <- function(x, y, y.group, prior.prob=NULL,
 
 plotkda.3d <- function(x, y, y.group, prior.prob=NULL, cont=c(25,50,75), abs.cont, approx.cont=TRUE, colors, alpha=0.5, alphavec, xlab, ylab, zlab, drawpoints=FALSE, size=3, col.pt="blue", add=FALSE, ...)
 {
+  if (!requireNamespace("rgl", quietly = TRUE))
+    stop("Package \"rgl\" needed for this function to work. Please install it.", call. = FALSE)
+
   fhat <- x
    
   ##d <- 3

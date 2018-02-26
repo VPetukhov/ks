@@ -167,6 +167,9 @@ plot.kr <- function(x, display="rgl", col, col.fun, xlab, ylab, ...)
     if (display!="rgl") plot.kdde(x=x, col=col, col.fun=col.fun, display=display, xlab=xlab, ylab=ylab, ...)
     else
     {
+        if (!requireNamespace("rgl", quietly = TRUE))
+            stop("Package \"rgl\" needed for this function to work. Please install it.", call. = FALSE)
+
         if (missing(col.fun)) col.fun <- terrain.colors
         if (missing(col)) col <- terrain.colors(5)[2]
         col.table <- col.fun(round(diff(range(x$estimate, na.rm=TRUE)) + 1,0))

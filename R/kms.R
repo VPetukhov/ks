@@ -229,7 +229,7 @@ plot.kms <- function(x, splom=TRUE, col, add=FALSE, ...)
         if (!add) plot(fhat$x, col=col[fhat$label], ...)
         else points(fhat$x, col=col[fhat$label], ...)
     }
-    else if (d==3 & !splom)
+    else if (d==3 & !splom & requireNamespace("rgl", quietly = TRUE))
     {
         if (!add) rgl::plot3d(fhat$x, col=col[fhat$label], ...)
         else rgl::points3d(fhat$x, col=col[fhat$label], ...) 
